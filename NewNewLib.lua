@@ -34,7 +34,7 @@ UIListLayout.Parent = Handler
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 2)
 
-function Library.Category(name,clr)
+function Library.Category(name,description,clr)
 	local thing = Instance.new("TextButton")
 	local Frame = Instance.new("Frame")
 	local UIListLayout_2 = Instance.new("UIListLayout")
@@ -68,6 +68,50 @@ function Library.Category(name,clr)
 	Under.BackgroundColor3 = clr
 	Under.BorderSizePixel = 0
 	Under.Position = UDim2.new(0.5, 0, 0.985000014, 0)
+	
+	Info.Name = "Info"
+	Info.Parent = thing
+	Info.BackgroundColor3 = Color3.fromRGB(29, 33, 28)
+	Info.BorderSizePixel = 0
+	Info.ClipsDescendants = true
+	Info.Position = UDim2.new(1.03499997, 0, 0, 0)
+	Info.Size = UDim2.new(0, 0, 0, 30)
+	Info.Font = Enum.Font.SourceSansSemibold
+	Info.Text = " "..description
+	Info.TextColor3 = Color3.fromRGB(212, 214, 213)
+	Info.TextSize = 18.000
+	Info.TextWrapped = true
+	Info.TextXAlignment = Enum.TextXAlignment.Left
+	local sizes = string.len(Info.Text)
+	thing.MouseEnter:Connect(function()
+		gs:Create(Under, TweenInfo.new(0.3), {Size =UDim2.new(1, 0,0,2)}):Play()
+		wait(0.3)
+	end)
+	thing.MouseLeave:Connect(function()
+		gs:Create(Under, TweenInfo.new(0.3), {Size =UDim2.new(0, 0,0,2)}):Play()
+		wait(0.3)
+	end)
+	local tog = false
+	local siz = 0
+	thing.MouseButton1Click:Connect(function()
+		for i,v in pairs(Frame:GetChildren()) do
+			if v.ClassName ~= "UIListLayout" then
+				siz = siz + v.Size.Y.Offset
+			end
+		end
+		if tog == false then tog = true
+			wait(0.1)
+			wait(0.3)
+			Frame.ClipsDescendants = false
+			siz = 0
+		else
+			tog = false
+			Frame.ClipsDescendants = true
+			wait(0.1)
+			wait(0.3)
+			siz = 0
+		end
+	end)
 	local win = {}
 	
 	function win:Section(name)
