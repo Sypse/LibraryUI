@@ -34,7 +34,7 @@ UIListLayout.Parent = Handler
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 2)
 
-function Library.Category(name,clr)
+function Library.Category(name,description,clr)
 	local thing = Instance.new("TextButton")
 	local Frame = Instance.new("Frame")
 	local UIListLayout_2 = Instance.new("UIListLayout")
