@@ -1,10 +1,10 @@
 local Library = {}
 local gs = game:GetService("TweenService")
-	if game.CoreGui:FindFirstChild("MagikHax") ~= nil then
-		 game.CoreGui:FindFirstChild("MagikHax"):Destroy()
+	if game.CoreGui:FindFirstChild("SypseHub") ~= nil then
+		 game.CoreGui:FindFirstChild("SypseHub"):Destroy()
 	end
 local toggled = true
-local MagikHax = Instance.new("ScreenGui")
+local SypseHub = Instance.new("ScreenGui")
 local Handler = Instance.new("Frame")
 game:GetService('UserInputService').InputBegan:connect(function(key, gpe) 
 	if (not gpe) then 
@@ -19,12 +19,12 @@ game:GetService('UserInputService').InputBegan:connect(function(key, gpe)
 	end 
 end)
 local UIListLayout = Instance.new("UIListLayout")
-MagikHax.Name = "MagikHax"
-MagikHax.Parent = game.CoreGui
-MagikHax.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-MagikHax.ResetOnSpawn = false
+SypseHub.Name = "SypseHub"
+SypseHub.Parent = game.CoreGui
+SypseHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+SypseHub.ResetOnSpawn = false
 Handler.Name = "Handler"
-Handler.Parent = MagikHax
+Handler.Parent = SypseHub
 Handler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Handler.BackgroundTransparency = 1.000
 Handler.Position = UDim2.new(0.0250000022, 0, 0.0249999985, 0)
@@ -1448,4 +1448,3 @@ for i,v in pairs(Handler:GetChildren()) do
 end
 Handler.Size = UDim2.new(0, 200, 0, si)
 return Library;
-
