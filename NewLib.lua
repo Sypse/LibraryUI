@@ -57,7 +57,10 @@ function Library.Category(name,description,clr)
 	Frame.BorderSizePixel = 0
 	Frame.ClipsDescendants = true
 	Frame.Position = UDim2.new(1.03499997, 0, 0, 0)
-	Frame.Size = UDim2.new(0, 0, 0, 210)
+    Frame.Size = UDim2.new(0, 0, 0, 210)
+    Frame.Draggable = true
+    Frame.Active = true
+    Frame.Selectable = true
 	
 	UIListLayout_2.Parent = Frame
 	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
