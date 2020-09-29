@@ -34,13 +34,13 @@ UIListLayout.Parent = Handler
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 2)
 
-function Library.Category(name,description,clr)
+function Library.Category2(name,description,clr)
 	local thing = Instance.new("TextButton")
 	local Frame = Instance.new("Frame")
 	local UIListLayout_2 = Instance.new("UIListLayout")
 	local Under = Instance.new("Frame")
 	local Info = Instance.new("TextLabel")
-	thing.Name = "thing"
+	thing.Name = "thing2"
 	thing.Parent = Handler
 	thing.BackgroundColor3 = Color3.fromRGB(29, 30, 28)
 	thing.BorderSizePixel = 0
