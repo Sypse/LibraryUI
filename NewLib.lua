@@ -6,18 +6,7 @@ local gs = game:GetService("TweenService")
 local toggled = true
 local SypseHub = Instance.new("ScreenGui")
 local Handler = Instance.new("Frame")
-game:GetService('UserInputService').InputBegan:connect(function(key, gpe) 
-	if (not gpe) then 
-		if key.KeyCode == Enum.KeyCode.RightShift then 
-			toggled = not toggled; 
-			if toggled == true then
-				Handler:TweenPosition(UDim2.new(0.0250000022, 0, 0.0249999985, 0),"In","Quad",0.15,true)
-			else
-				Handler:TweenPosition(UDim2.new(-1, 0, -0.5,0),"Out","Quad",0.15,true)
-			end
-		end 
-	end 
-end)
+
 local UIListLayout = Instance.new("UIListLayout")
 SypseHub.Name = "SypseHub"
 SypseHub.Parent = game.CoreGui
