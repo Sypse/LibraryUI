@@ -1302,7 +1302,124 @@ end)
 		BButton_2.FocusLost:Connect(function()
 		   callback(BButton_2.Text)
 		end)
-	end
+    end
+
+    function win:Box2(name,text,callback)
+		callback = callback or function(lol) end
+		local Bind = Instance.new("TextLabel")
+		local BButton_2 = Instance.new("TextBox")
+		Bind.Name = "Box"
+		Bind.Parent = Frame
+		Bind.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		Bind.BackgroundTransparency = 1.000
+		Bind.BorderSizePixel = 0
+		Bind.Size = UDim2.new(0, 200, 0, 30)
+		Bind.Font = Enum.Font.SourceSansSemibold
+		Bind.Text = " "..name
+		Bind.TextColor3 = Color3.fromRGB(238, 239, 238)
+		Bind.TextSize = 18.000
+		Bind.TextXAlignment = Enum.TextXAlignment.Left
+		
+		BButton_A2.Name = "BButton"
+		BButton_A2.Parent = Bind
+		BButton_A2.AnchorPoint = Vector2.new(0.5, 0.5)
+		BButton_A2.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		BButton_A2.BorderColor3 = Color3.fromRGB(206, 196, 205)
+		BButton_A2.BorderSizePixel = 0
+		BButton_A2.ClipsDescendants = true
+		BButton_A2.Position = UDim2.new(0.787500024, 0, 0.5, 0)
+		BButton_A2.Size = UDim2.new(0.324999988, 0, 0, 20)
+		BButton_A2.Font = Enum.Font.SourceSansSemibold
+		BButton_A2.Text = ""
+		BButton_A2.PlaceholderText = tostring(text)
+		BButton_A2.TextColor3 = Color3.fromRGB(209, 211, 209)
+		BButton_A2.TextSize = 16.000
+		BButton_A2.TextWrapped = true
+		BButton_A2.TextScaled = true
+		BButton_A2.FocusLost:Connect(function()
+		   callback(BButton_A2.Text)
+		end)
+    end
+
+    function win:Box3(name,text,callback)
+		callback = callback or function(lol) end
+		local Bind = Instance.new("TextLabel")
+		local BButton_2 = Instance.new("TextBox")
+		Bind.Name = "Box"
+		Bind.Parent = Frame
+		Bind.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		Bind.BackgroundTransparency = 1.000
+		Bind.BorderSizePixel = 0
+		Bind.Size = UDim2.new(0, 200, 0, 30)
+		Bind.Font = Enum.Font.SourceSansSemibold
+		Bind.Text = " "..name
+		Bind.TextColor3 = Color3.fromRGB(238, 239, 238)
+		Bind.TextSize = 18.000
+		Bind.TextXAlignment = Enum.TextXAlignment.Left
+		
+		BButton_A3.Name = "BButton"
+		BButton_A3.Parent = Bind
+		BButton_A3.AnchorPoint = Vector2.new(0.5, 0.5)
+		BButton_A3.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		BButton_A3.BorderColor3 = Color3.fromRGB(206, 196, 205)
+		BButton_A3.BorderSizePixel = 0
+		BButton_A3.ClipsDescendants = true
+		BButton_A3.Position = UDim2.new(0.787500024, 0, 0.5, 0)
+		BButton_A3.Size = UDim2.new(0.324999988, 0, 0, 20)
+		BButton_A3.Font = Enum.Font.SourceSansSemibold
+		BButton_A3.Text = ""
+		BButton_A3.PlaceholderText = tostring(text)
+		BButton_A3.TextColor3 = Color3.fromRGB(209, 211, 209)
+		BButton_A3.TextSize = 16.000
+		BButton_A3.TextWrapped = true
+		BButton_A3.TextScaled = true
+		BButton_A3.FocusLost:Connect(function()
+		   callback(BButton_A3.Text)
+		end)
+    end
+
+    function win:Box4(name,text,callback)
+		callback = callback or function(lol) end
+		local Bind = Instance.new("TextLabel")
+		local BButton_2 = Instance.new("TextBox")
+		Bind.Name = "Box"
+		Bind.Parent = Frame
+		Bind.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		Bind.BackgroundTransparency = 1.000
+		Bind.BorderSizePixel = 0
+		Bind.Size = UDim2.new(0, 200, 0, 30)
+		Bind.Font = Enum.Font.SourceSansSemibold
+		Bind.Text = " "..name
+		Bind.TextColor3 = Color3.fromRGB(238, 239, 238)
+		Bind.TextSize = 18.000
+		Bind.TextXAlignment = Enum.TextXAlignment.Left
+		
+		BButton_A4.Name = "BButton"
+		BButton_A4.Parent = Bind
+		BButton_A4.AnchorPoint = Vector2.new(0.5, 0.5)
+		BButton_A4.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		BButton_A4.BorderColor3 = Color3.fromRGB(206, 196, 205)
+		BButton_A4.BorderSizePixel = 0
+		BButton_A4.ClipsDescendants = true
+		BButton_A4.Position = UDim2.new(0.787500024, 0, 0.5, 0)
+		BButton_A4.Size = UDim2.new(0.324999988, 0, 0, 20)
+		BButton_A4.Font = Enum.Font.SourceSansSemibold
+		BButton_A4.Text = ""
+		BButton_A4.PlaceholderText = tostring(text)
+		BButton_A4.TextColor3 = Color3.fromRGB(209, 211, 209)
+		BButton_A4.TextSize = 16.000
+		BButton_A4.TextWrapped = true
+		BButton_A4.TextScaled = true
+		BButton_A4.FocusLost:Connect(function()
+		   callback(BButton_A4.Text)
+		end)
+    end
+
+
+
+
+
+
 	function win:Slider(name,min,max,esti,callback)
 		min = min or 0
 		max = max or 100
