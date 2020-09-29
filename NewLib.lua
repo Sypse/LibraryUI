@@ -34,6 +34,337 @@ UIListLayout.Parent = Handler
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 2)
 
+function Library.Category(name,description,clr)
+	local thing = Instance.new("TextButton")
+	local Frame = Instance.new("Frame")
+	local UIListLayout_2 = Instance.new("UIListLayout")
+	local Under = Instance.new("Frame")
+	local Info = Instance.new("TextLabel")
+	thing.Name = "thing"
+	thing.Parent = Handler
+	thing.BackgroundColor3 = Color3.fromRGB(29, 30, 28)
+	thing.BorderSizePixel = 0
+	thing.Size = UDim2.new(1, 0, 0, 30)
+	thing.Font = Enum.Font.GothamSemibold
+	thing.Text = " "..name
+	thing.TextColor3 = Color3.fromRGB(192, 193, 192)
+	thing.TextSize = 22.000
+	thing.TextWrapped = true
+	thing.TextXAlignment = Enum.TextXAlignment.Left
+	
+	Frame.Parent = thing
+	Frame.BackgroundColor3 = Color3.fromRGB(30, 31, 29)
+	Frame.BorderSizePixel = 0
+	Frame.ClipsDescendants = true
+	Frame.Position = UDim2.new(1.03499997, 0, 0, 0)
+    Frame.Size = UDim2.new(0, 0, 0, 210)
+    Frame.Draggable = true
+    Frame.Active = true
+    Frame.Selectable = true
+	
+	UIListLayout_2.Parent = Frame
+	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+	
+	Under.Name = "Under"
+	Under.Parent = thing
+	Under.AnchorPoint = Vector2.new(0.5, 0)
+	Under.BackgroundColor3 = clr
+	Under.BorderSizePixel = 0
+	Under.Position = UDim2.new(0.5, 0, 0.985000014, 0)
+	
+	Info.Name = "Info"
+	Info.Parent = thing
+	Info.BackgroundColor3 = Color3.fromRGB(29, 33, 28)
+	Info.BorderSizePixel = 0
+	Info.ClipsDescendants = true
+	Info.Position = UDim2.new(1.03499997, 0, 0, 0)
+	Info.Size = UDim2.new(0, 0, 0, 30)
+	Info.Font = Enum.Font.SourceSansSemibold
+	Info.Text = " "..description
+	Info.TextColor3 = Color3.fromRGB(212, 214, 213)
+	Info.TextSize = 18.000
+	Info.TextWrapped = true
+	Info.TextXAlignment = Enum.TextXAlignment.Left
+	local sizes = string.len(Info.Text)
+	thing.MouseEnter:Connect(function()
+		gs:Create(Under, TweenInfo.new(0.3), {Size =UDim2.new(1, 0,0,2)}):Play()
+		gs:Create(Info, TweenInfo.new(0.3), {Size =UDim2.new(0,sizes*8,0,30)}):Play()
+		wait(0.3)
+	end)
+	thing.MouseLeave:Connect(function()
+		gs:Create(Under, TweenInfo.new(0.3), {Size =UDim2.new(0, 0,0,2)}):Play()
+		gs:Create(Info, TweenInfo.new(0.3), {Size =UDim2.new(0,0,0,30)}):Play()
+		wait(0.3)
+	end)
+	local tog = false
+	local siz = 0
+	thing.MouseButton1Click:Connect(function()
+		for i,v in pairs(Frame:GetChildren()) do
+			if v.ClassName ~= "UIListLayout" then
+				siz = siz + v.Size.Y.Offset
+			end
+		end
+		if tog == false then tog = true
+			gs:Create(Frame, TweenInfo.new(0.4), {Size =UDim2.new(0, 200,0, siz)}):Play()
+			wait(0.1)
+			wait(0.3)
+			Frame.ClipsDescendants = false
+			siz = 0
+		else
+			tog = false
+			gs:Create(Frame, TweenInfo.new(0.4), {Size =UDim2.new(0, 0,0, siz)}):Play()
+			Frame.ClipsDescendants = true
+			wait(0.1)
+			wait(0.3)
+			siz = 0
+		end
+	end)
+	local win = {}
+	
+	function win:Section(name)
+		local Section = Instance.new("TextLabel")
+		Section.Name = "Section"
+		Section.Parent = Frame
+		Section.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		Section.BorderSizePixel = 0
+		Section.Size = UDim2.new(0, 200, 0, 30)
+		Section.Font = Enum.Font.SourceSansSemibold
+		Section.Text = ""..name
+		Section.TextColor3 = Color3.fromRGB(238, 239, 238)
+		Section.TextSize = 18.000
+	end
+	function win:Toggle(name,callback)
+		callback = callback or function(State)end
+		local Toggle = Instance.new("TextLabel")
+		local ToggleButton = Instance.new("ImageButton")
+		Toggle.Name = "Toggle"
+		Toggle.Parent = Frame
+		Toggle.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		Toggle.BackgroundTransparency = 1.000
+		Toggle.BorderSizePixel = 0
+		Toggle.Size = UDim2.new(0, 200, 0, 30)
+		Toggle.Font = Enum.Font.SourceSansSemibold
+		Toggle.Text = " "..name
+		Toggle.TextColor3 = Color3.fromRGB(238, 239, 238)
+		Toggle.TextSize = 18.000
+		Toggle.TextXAlignment = Enum.TextXAlignment.Left
+		
+		ToggleButton.Name = "ToggleButton"
+		ToggleButton.Parent = Toggle
+		ToggleButton.AnchorPoint = Vector2.new(0.5, 0.5)
+		ToggleButton.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		ToggleButton.BorderColor3 = Color3.fromRGB(206, 196, 205)
+		ToggleButton.BorderSizePixel = 0
+		ToggleButton.Position = UDim2.new(0.925000012, 0, 0.5, 0)
+		ToggleButton.Size = UDim2.new(0, 22, 0, 22)
+		ToggleButton.Image = "http://www.roblox.com/asset/?id=33450396"
+		local tog1 = false
+		ToggleButton.MouseButton1Click:Connect(function()
+			if tog1 == false then 
+				tog1 = true 
+				gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(36, 38, 36)}):Play()
+				wait(0.15)
+				ToggleButton.Image = "http://www.roblox.com/asset/?id=82724486"
+				gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(19, 20, 19)}):Play()
+				wait(0.15)
+				callback(true)
+				 else tog1 = false 
+				gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(36, 38, 36)}):Play()
+				wait(0.15)
+				ToggleButton.Image = "http://www.roblox.com/asset/?id=33450396"
+				gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(19, 20, 19)}):Play()
+				wait(0.15)
+				callback(false)
+			end
+		end)
+	end
+	function win:Button(name,callback)
+		callback = callback or function() end
+		local Button = Instance.new("TextLabel")
+		local BButton = Instance.new("TextButton")
+		Button.Name = "Button"
+		Button.Parent = Frame
+		Button.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		Button.BackgroundTransparency = 1.000
+		Button.BorderSizePixel = 0
+		Button.Size = UDim2.new(0, 200, 0, 30)
+		Button.Font = Enum.Font.SourceSansSemibold
+		Button.Text = ""
+		Button.TextColor3 = Color3.fromRGB(238, 239, 238)
+		Button.TextSize = 18.000
+		Button.TextXAlignment = Enum.TextXAlignment.Left
+		
+		BButton.Name = "BButton"
+		BButton.Text = name
+		BButton.Parent = Button
+		BButton.AnchorPoint = Vector2.new(0.5, 0.5)
+		BButton.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		BButton.BorderColor3 = Color3.fromRGB(206, 196, 205)
+		BButton.BorderSizePixel = 0
+		BButton.ClipsDescendants = true
+		BButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+		BButton.Size = UDim2.new(0.899999976, 0, 0, 20)
+		BButton.Font = Enum.Font.SourceSansSemibold
+		BButton.TextColor3 = Color3.fromRGB(209, 211, 209)
+		BButton.TextSize = 20.000
+		BButton.TextWrapped = true
+		
+		BButton.MouseButton1Click:Connect(callback)
+		
+		
+	local btn=BButton
+	btn.MouseButton1Down:connect(function()
+		local img=Instance.new'ImageLabel'
+		img.BackgroundTransparency=1
+		img.BorderSizePixel=0
+		img.Image="rbxassetid://232918622"
+		img.ImageColor3=Color3.new(19/255, 20/255, 19/255)
+		img.Size=UDim2.new(0,0,0,0)
+		img.Position=UDim2.new(.5,0,.5,0)
+		img.Parent=btn
+		img:TweenSizeAndPosition(UDim2.new(0,200,0,200),UDim2.new(.5,-100,.5,-100),Enum.EasingDirection.Out,Enum.EasingStyle.Linear,.5)	
+		for i=0.1,1,.05 do
+			img.ImageTransparency=i
+			wait()
+		end
+		img:Destroy()
+	end)
+
+	end
+	function win:Dropdown(name,options,callback)
+		callback = callback or function() end
+		local Dropdown = Instance.new("TextLabel")
+		local OpenButton = Instance.new("TextButton")
+		local Val = Instance.new("StringValue")
+		local Frame_2 = Instance.new("Frame")
+		local UIListLayout_3 = Instance.new("UIListLayout")
+		local old = name
+		OpenButton.MouseButton1Click:Connect(function()
+			for i,v in pairs(Frame_2:GetChildren()) do
+				if v.ClassName ~= "UIListLayout" then
+					if v.ClassName ~= "BoolValue" then
+						siz = siz + v.Size.Y.Offset 
+					end
+				end
+			end
+			if OpenButton.Text == "<" then 
+				local sav = Dropdown.Text
+			gs:Create(Frame_2, TweenInfo.new(0.4), {Size =UDim2.new(0, 0,0, siz)}):Play()
+			wait(0.1)
+			siz = 0
+			gs:Create(Dropdown, TweenInfo.new(0.4), {TextColor3 = Color3.fromRGB(238, 239, 238)}):Play()
+			OpenButton.Text = ">"
+			Dropdown.Text = Val.Value or old
+			wait(0.3)
+			else
+				gs:Create(Frame_2, TweenInfo.new(0.4), {Size =UDim2.new(0, 185,0, siz)}):Play()
+				wait(0.1)
+				OpenButton.Text = "<"
+				gs:Create(Dropdown, TweenInfo.new(0.4), {TextColor3 = Color3.fromRGB(78, 80, 78)}):Play()
+				Dropdown.Text = old
+				wait(0.3)
+				siz = 0
+			end
+		end)
+		Dropdown.Name = "Dropdown"
+		Dropdown.Parent = Frame
+		Dropdown.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
+		Dropdown.BackgroundTransparency = 1.000
+		Dropdown.BorderSizePixel = 0
+		Dropdown.Size = UDim2.new(0, 200, 0, 30)
+		Dropdown.Font = Enum.Font.SourceSansSemibold
+		Dropdown.Text = name
+		Dropdown.TextColor3 = Color3.fromRGB(238, 239, 238)
+		Dropdown.TextSize = 16.000
+		Dropdown.TextWrapped = true
+		
+		OpenButton.Name = "OpenButton"
+		OpenButton.Parent = Dropdown
+		OpenButton.BackgroundColor3 = Color3.fromRGB(19, 20, 19)
+		OpenButton.BackgroundTransparency = 1.000
+		OpenButton.BorderSizePixel = 0
+		OpenButton.Position = UDim2.new(0.850000024, 0, 0, 0)
+		OpenButton.Size = UDim2.new(0, 30, 0, 30)
+		OpenButton.Font = Enum.Font.SourceSans
+		OpenButton.Text = ">"
+		OpenButton.TextColor3 = Color3.fromRGB(209, 211, 209)
+		OpenButton.TextSize = 25.000
+		OpenButton.TextWrapped = true
+		
+		Frame_2.Parent = OpenButton
+		Frame_2.BackgroundColor3 = Color3.fromRGB(19, 20, 19)
+		Frame_2.BorderSizePixel = 0
+		Frame_2.ClipsDescendants = true
+		Frame_2.Position = UDim2.new(1, 0, 0, 0)
+		Frame_2.Size = UDim2.new(0, 0, 0, 0)
+		
+		UIListLayout_3.Parent = Frame_2
+		UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+		for i,v in pairs(options) do
+			local PButton = Instance.new("TextButton")		
+			PButton.Name = "PButton"
+			PButton.Parent = Frame_2
+			PButton.BackgroundColor3 = Color3.fromRGB(19, 20, 19)
+			PButton.BorderSizePixel = 0
+			PButton.Size = UDim2.new(0, 185, 0, 30)
+			PButton.Font = Enum.Font.SourceSansSemibold
+			PButton.Text = v
+			PButton.TextColor3 = Color3.fromRGB(209, 211, 209)
+			PButton.TextSize = 20.000
+			PButton.TextWrapped = true
+			PButton.MouseButton1Click:Connect(function()
+				gs:Create(PButton, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(36, 38, 36)}):Play()
+				wait(0.3)
+				gs:Create(Frame_2, TweenInfo.new(0.4), {Size =UDim2.new(0, 0,0, siz)}):Play()
+				wait(0.1)
+				gs:Create(PButton, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(19, 20, 19)}):Play()
+				wait(0.3)
+				Val.Value = v
+				callback(v)
+				Dropdown.Text = v
+				gs:Create(Dropdown, TweenInfo.new(0.4), {TextColor3 = Color3.fromRGB(238, 239, 238)}):Play()
+				OpenButton.Text = ">"
+			end)
+		end
+	end
+	function win:SearchBox(name,options,callback)
+		callback = callback or function() end
+		local Dropdown = Instance.new("TextLabel")
+		local OpenButton = Instance.new("TextBox")
+		local Val = Instance.new("StringValue")
+		local Frame_2 = Instance.new("Frame")
+		local UIListLayout_3 = Instance.new("UIListLayout")
+		local old = name
+		spawn(function()
+
+            OpenButton:GetPropertyChangedSignal("Text"):Connect(function()
+			for i,v in pairs(Frame_2:GetChildren()) do
+				if v.ClassName ~= "UIListLayout" then
+					if v.ClassName ~= "BoolValue" then
+						if string.sub(string.lower(v.Text), 1, string.len(OpenButton.Text)) == string.lower(OpenButton.Text) then
+							siz = siz + v.Size.Y.Offset 
+						end
+					end
+				end
+			end
+			if OpenButton.Text == "" then 
+				local sav = Dropdown.Text
+			gs:Create(Frame_2, TweenInfo.new(0.4), {Size =UDim2.new(0, 0,0, siz)}):Play()
+			wait(0.1)
+			siz = 0
+			gs:Create(Dropdown, TweenInfo.new(0.4), {TextColor3 = Color3.fromRGB(238, 239, 238)}):Play()
+			wait(0.3)
+			else
+				gs:Create(Frame_2, TweenInfo.new(0.4), {Size =UDim2.new(0, 185,0, siz)}):Play()
+				wait(0.1)
+				gs:Create(Dropdown, TweenInfo.new(0.4), {TextColor3 = Color3.fromRGB(78, 80, 78)}):Play()
+				wait(0.3)
+				siz = 0
+			end
+		end)
+end)
+
+
 function Library.Category2(name,description,clr)
 	local thing = Instance.new("TextButton")
 	local Frame = Instance.new("Frame")
@@ -336,7 +667,8 @@ function Library.Category2(name,description,clr)
 		local UIListLayout_3 = Instance.new("UIListLayout")
 		local old = name
 		spawn(function()
-OpenButton:GetPropertyChangedSignal("Text"):Connect(function()
+
+            OpenButton:GetPropertyChangedSignal("Text"):Connect(function()
 			for i,v in pairs(Frame_2:GetChildren()) do
 				if v.ClassName ~= "UIListLayout" then
 					if v.ClassName ~= "BoolValue" then
@@ -362,6 +694,9 @@ OpenButton:GetPropertyChangedSignal("Text"):Connect(function()
 			end
 		end)
 end)
+
+
+
 		Dropdown.Name = "Dropdown"
 		Dropdown.Parent = Frame
 		Dropdown.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
