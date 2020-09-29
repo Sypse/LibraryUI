@@ -3,21 +3,9 @@ local gs = game:GetService("TweenService")
 	if game.CoreGui:FindFirstChild("SypseHub") ~= nil then
 		 game.CoreGui:FindFirstChild("SypseHub"):Destroy()
 	end
-local toggled = true
+
 local SypseHub = Instance.new("ScreenGui")
 local Handler = Instance.new("Frame")
-game:GetService('UserInputService').InputBegan:connect(function(key, gpe) 
-	if (not gpe) then 
-		if key.KeyCode == Enum.KeyCode.Insert then 
-			toggled = not toggled; 
-			if toggled == true then
-				Handler:TweenPosition(UDim2.new(0.0250000022, 0, 0.0249999985, 0),"In","Quad",0.15,true)
-			else
-				Handler:TweenPosition(UDim2.new(-1, 0, -0.5,0),"Out","Quad",0.15,true)
-			end
-		end 
-	end 
-end)
 local UIListLayout = Instance.new("UIListLayout")
 SypseHub.Name = "SypseHub"
 SypseHub.Parent = game.CoreGui
@@ -365,6 +353,7 @@ function Library.Category(name,description,clr)
 end)
 
 
+
 function Library.Category2(name,description,clr)
 	local thing = Instance.new("TextButton")
 	local Frame = Instance.new("Frame")
@@ -694,9 +683,7 @@ function Library.Category2(name,description,clr)
 			end
 		end)
 end)
-
-
-
+    
 		Dropdown.Name = "Dropdown"
 		Dropdown.Parent = Frame
 		Dropdown.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
