@@ -1299,9 +1299,7 @@ end)
 		BButton_2.TextSize = 16.000
 		BButton_2.TextWrapped = true
 		BButton_2.TextScaled = true
-		BButton_2.FocusLost:Connect(function()
-		   callback(BButton_2.Text)
-		end)
+		
     end
 
     function win:Box2(name,text,callback)
@@ -1320,7 +1318,7 @@ end)
 		Bind.TextSize = 18.000
 		Bind.TextXAlignment = Enum.TextXAlignment.Left
 		
-		BButton_A2.Name = "BButton"
+		BButton_A2.Name = "BButton2"
 		BButton_A2.Parent = Bind
 		BButton_A2.AnchorPoint = Vector2.new(0.5, 0.5)
 		BButton_A2.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
@@ -1336,9 +1334,6 @@ end)
 		BButton_A2.TextSize = 16.000
 		BButton_A2.TextWrapped = true
 		BButton_A2.TextScaled = true
-		BButton_A2.FocusLost:Connect(function()
-		   callback(BButton_A2.Text)
-		end)
     end
 
     function win:Box3(name,text,callback)
@@ -1357,7 +1352,7 @@ end)
 		Bind.TextSize = 18.000
 		Bind.TextXAlignment = Enum.TextXAlignment.Left
 		
-		BButton_A3.Name = "BButton"
+		BButton_A3.Name = "BButton3"
 		BButton_A3.Parent = Bind
 		BButton_A3.AnchorPoint = Vector2.new(0.5, 0.5)
 		BButton_A3.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
@@ -1373,9 +1368,6 @@ end)
 		BButton_A3.TextSize = 16.000
 		BButton_A3.TextWrapped = true
 		BButton_A3.TextScaled = true
-		BButton_A3.FocusLost:Connect(function()
-		   callback(BButton_A3.Text)
-		end)
     end
 
     function win:Box4(name,text,callback)
@@ -1394,7 +1386,7 @@ end)
 		Bind.TextSize = 18.000
 		Bind.TextXAlignment = Enum.TextXAlignment.Left
 		
-		BButton_A4.Name = "BButton"
+		BButton_A4.Name = "BButton4"
 		BButton_A4.Parent = Bind
 		BButton_A4.AnchorPoint = Vector2.new(0.5, 0.5)
 		BButton_A4.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
@@ -1410,9 +1402,6 @@ end)
 		BButton_A4.TextSize = 16.000
 		BButton_A4.TextWrapped = true
 		BButton_A4.TextScaled = true
-		BButton_A4.FocusLost:Connect(function()
-		   callback(BButton_A4.Text)
-		end)
     end
 
 
