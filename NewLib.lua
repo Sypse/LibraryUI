@@ -1266,7 +1266,12 @@ end)
 			callback()
 		 end
 		end)
-	end
+    end
+ 
+
+
+
+
 	function win:Box(name,text,callback)
 		callback = callback or function(lol) end
 		local Bind = Instance.new("TextLabel")
@@ -1305,7 +1310,7 @@ end)
     function win:Box2(name,text,callback)
 		callback = callback or function(lol) end
 		local Bind = Instance.new("TextLabel")
-		local BButton_2 = Instance.new("TextBox")
+		local BButton_A2 = Instance.new("TextBox")
 		Bind.Name = "Box"
 		Bind.Parent = Frame
 		Bind.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
@@ -1339,7 +1344,7 @@ end)
     function win:Box3(name,text,callback)
 		callback = callback or function(lol) end
 		local Bind = Instance.new("TextLabel")
-		local BButton_2 = Instance.new("TextBox")
+		local BButton_A3 = Instance.new("TextBox")
 		Bind.Name = "Box"
 		Bind.Parent = Frame
 		Bind.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
@@ -1373,7 +1378,7 @@ end)
     function win:Box4(name,text,callback)
 		callback = callback or function(lol) end
 		local Bind = Instance.new("TextLabel")
-		local BButton_2 = Instance.new("TextBox")
+		local BButton_A4 = Instance.new("TextBox")
 		Bind.Name = "Box"
 		Bind.Parent = Frame
 		Bind.BackgroundColor3 = Color3.fromRGB(42, 44, 42)
