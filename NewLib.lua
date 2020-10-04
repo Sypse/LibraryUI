@@ -1,19 +1,19 @@
 local Library = {}
 local gs = game:GetService("TweenService")
-	if game.CoreGui:FindFirstChild("SypseHub") ~= nil then
-		 game.CoreGui:FindFirstChild("SypseHub"):Destroy()
+	if game.CoreGui:FindFirstChild("RobloxHandler") ~= nil then
+		 game.CoreGui:FindFirstChild("RobloxHandler"):Destroy()
 	end
 
-local SypseHub = Instance.new("ScreenGui")
+local RobloxHandler = Instance.new("ScreenGui")
 local Handler = Instance.new("Frame")
 
 local UIListLayout = Instance.new("UIListLayout")
-SypseHub.Name = "SypseHub"
-SypseHub.Parent = game.CoreGui
-SypseHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-SypseHub.ResetOnSpawn = false
+RobloxHandler.Name = "RobloxHandler"
+RobloxHandler.Parent = game.CoreGui
+RobloxHandler.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+RobloxHandler.ResetOnSpawn = false
 Handler.Name = "Handler"
-Handler.Parent = SypseHub
+Handler.Parent = RobloxHandler
 Handler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Handler.BackgroundTransparency = 1.000
 Handler.Position = UDim2.new(0.0250000022, 0, 0.0249999985, 0)
