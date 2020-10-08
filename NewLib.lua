@@ -6,7 +6,6 @@ local gs = game:GetService("TweenService")
 
 local RobloxHandler = Instance.new("ScreenGui")
 local Handler = Instance.new("Frame")
-
 local UIListLayout = Instance.new("UIListLayout")
 RobloxHandler.Name = "RobloxHandler"
 RobloxHandler.Parent = game.CoreGui
@@ -161,7 +160,7 @@ function Library.Category(name,description,clr)
 				gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(36, 38, 36)}):Play()
 				wait(0.15)
 				ToggleButton.Image = "http://www.roblox.com/asset/?id=33450396"
-				gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(19, 20, 19)}):Play()
+				gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(42, 44, 42)}):Play()
 				wait(0.15)
 				callback(false)
 			end
@@ -1700,7 +1699,7 @@ end
                     gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(36, 38, 36)}):Play()
                     wait(0.15)
                     ToggleButton.Image = "http://www.roblox.com/asset/?id=33450396"
-                    gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(19, 20, 19)}):Play()
+                    gs:Create(ToggleButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(42, 44, 42)}):Play()
                     wait(0.15)
                     callback(false)
                 end
