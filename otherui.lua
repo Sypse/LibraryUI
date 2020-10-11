@@ -854,7 +854,7 @@ local function createList(option, parent, holder)
 	end
 	
 	function option:Close()
-		library.activePopup = true
+		library.activePopup:Close()
 		self.open = false
 		content.ScrollBarThickness = 0
 		local position = main.AbsolutePosition
@@ -1413,7 +1413,7 @@ local function createColor(option, parent, holder)
 	end
 	
 	function option:Close()
-		library.activePopup = nil
+		library.activePopup:Open()
 		self.open = false
 		local position = self.main.AbsolutePosition
 		tweenService:Create(self.mainHolder, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 1, Position = UDim2.new(0, position.X - 5, 0, position.Y - 10)}):Play()
