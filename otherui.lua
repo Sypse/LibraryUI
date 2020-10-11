@@ -1636,7 +1636,7 @@ function library:Init()
 	end
 end
 
-function library:Close()
+function UIClose()
 	self.open = not self.open
 	self.cursor.Visible = self.open
 	if self.activePopup then
