@@ -854,7 +854,7 @@ local function createList(option, parent, holder)
 	end
 	
 	function option:Close()
-		library.activePopup = nil
+		library.activePopup = true
 		self.open = false
 		content.ScrollBarThickness = 0
 		local position = main.AbsolutePosition
