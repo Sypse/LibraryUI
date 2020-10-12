@@ -1610,7 +1610,6 @@ function library:Init()
 	
 	self.base = self.base or self:Create("ScreenGui")
 	if syn and syn.protect_gui then
-		self.base.Name = "RobloxCrashHandler"
 		syn.protect_gui(self.base)
 	elseif get_hidden_gui then
 		get_hidden_gui(self.base)
@@ -1619,7 +1618,7 @@ function library:Init()
 		return
 	end
 	self.base.Parent = game:GetService"CoreGui"
-	
+	self.base.Name = "Roblox Dick"
 	self.cursor = self.cursor or self:Create("Frame", {
 		ZIndex = 100,
 		AnchorPoint = Vector2.new(0, 0),
