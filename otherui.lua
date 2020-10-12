@@ -1608,8 +1608,9 @@ local UIToggle
 local UnlockMouse
 function library:Init()
 	
-	self.base = self.base or self:Create("RobloxCrashHandler")
+	self.base = self.base or self:Create("ScreenGui")
 	if syn and syn.protect_gui then
+		self.base.Name = "RobloxCrashHandler"
 		syn.protect_gui(self.base)
 	elseif get_hidden_gui then
 		get_hidden_gui(self.base)
