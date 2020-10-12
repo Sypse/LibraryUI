@@ -13,7 +13,7 @@ local blacklistedKeys = { --add or remove keys if you find the need to
 	Enum.KeyCode.Unknown,Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D,Enum.KeyCode.Slash,Enum.KeyCode.Tab,Enum.KeyCode.Backspace,Enum.KeyCode.Escape
 }
 local whitelistedMouseinputs = { --add or remove mouse inputs if you find the need to
-	Enum.UserInputType.MouseButton2,Enum.UserInputType.MouseButton3
+	Enum.UserInputType.MouseButton1,Enum.UserInputType.MouseButton2,Enum.UserInputType.MouseButton3
 }
 
 --Functions
@@ -72,7 +72,6 @@ local function createOptionHolder(holderTitle, parent, parentTable, subHolder)
 		SliceScale = 0.04,
 		ClipsDescendants = true,
 		Parent = parent
-		library.ImageButton = holderTitle
 	})
 	
 	local round
@@ -716,7 +715,6 @@ local function createList(option, parent, holder)
 		SliceScale = 0.02,
 		Visible = false,
 		Parent = library.base
-		library.ImageButton = holderTitle
 	})
 	
 	local content = library:Create("ScrollingFrame", {
@@ -989,7 +987,6 @@ local function createColorPickerWindow(option)
 		SliceCenter = Rect.new(100, 100, 100, 100),
 		SliceScale = 0.02,
 		Parent = library.base
-		library.ImageButton = holderTitle
 	})
 		
 	local hue, sat, val = Color3.toHSV(option.color)
