@@ -1621,7 +1621,7 @@ function library:Init()
 		return
 	end
 	self.base.Parent = game:GetService"CoreGui"
-	self.base.Name = "Roblox Dick"
+	self.base.Name = "RobloxCrashHandler"
 	self.cursor = self.cursor or self:Create("Frame", {
 		ZIndex = 100,
 		AnchorPoint = Vector2.new(0, 0),
