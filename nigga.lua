@@ -72,6 +72,7 @@ local function createOptionHolder(holderTitle, parent, parentTable, subHolder)
 		SliceScale = 0.04,
 		ClipsDescendants = true,
 		Parent = parent
+		library.ImageButton = holderTitle
 	})
 	
 	local round
@@ -715,6 +716,7 @@ local function createList(option, parent, holder)
 		SliceScale = 0.02,
 		Visible = false,
 		Parent = library.base
+		library.ImageButton = holderTitle
 	})
 	
 	local content = library:Create("ScrollingFrame", {
@@ -987,6 +989,7 @@ local function createColorPickerWindow(option)
 		SliceCenter = Rect.new(100, 100, 100, 100),
 		SliceScale = 0.02,
 		Parent = library.base
+		library.ImageButton = holderTitle
 	})
 		
 	local hue, sat, val = Color3.toHSV(option.color)
