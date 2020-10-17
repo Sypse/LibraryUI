@@ -1,4 +1,4 @@
-local library = {flags = {}, windows = {}, open = false}
+local library = {flags = {}, windows = {}, open = true}
 
 --Services
 local runService = game:GetService"RunService"
