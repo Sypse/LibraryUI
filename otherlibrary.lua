@@ -1596,7 +1596,7 @@ local function getFnctions(parent)
 end
 
 function library:CreateWindow(title)
-	local window = {title = tostring(title), options = {}, open = true, canInit = true, init = false, position = #self.windows}
+	local window = {title = tostring(title), options = {}, open = false, canInit = true, init = false, position = #self.windows}
 	getFnctions(window)
 	
 	table.insert(library.windows, window)
